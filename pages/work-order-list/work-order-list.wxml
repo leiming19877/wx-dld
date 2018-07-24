@@ -1,0 +1,41 @@
+<!--pages/work-order-list/work-order-list.wxml-->
+<view class="container">
+	<view class="m-list">
+		<view wx:if="{{page.list.length > 0 }}" class="total-info" >
+			有{{page.totalCount}}张工单
+		</view>
+		<navigator class="item" data-id="{{item.worksheetId}}" url="../work-order-detail/work-order-detail?id={{item.worksheetId}}" wx:if="{{page.list && page.list.length > 0}}" wx:for="{{page.list}}" wx:key="worksheetId">
+			<view class="line">
+				<view class="hd">{{item.workContent}}</view>
+				<view class="bd"></view>
+				<view class="ft ft-in-access{{item.worksheetStatus==2?' singed':''}}">{{item.worksheetStatusDesc}}</view>
+			</view>
+			<view class="line">
+				<view class="hd">
+					<image style="width: 13px; height: 13px;" mode="scaleToFill" class="time-icon"  src="../../image/time.png"/>
+				</view>
+				<view class="bd">{{item.createTime}}</view>
+				<view class="ft"></view>
+			</view>
+			<view class="line">
+				
+				<view class="hd">
+					<image style="width: 11px; height: 15px;" mode="scaleToFill" class="address-icon"  src="../../image/address.png"  />
+				</view>
+				<view class="bd">{{item.workPlace}}</view>
+				<view class="ft"></view>
+			</view>
+		</navigator>
+		
+		
+
+		<view class="empty" wx:if="{{!page.list|| page.list.length == 0}}">
+			<image style="width: 177px; height: 129px;" mode="scaleToFill"  src="../../image/list-empty2.jpg"  />
+			<view class="info">
+				这家伙很懒，还没开过单
+				<navigator class="create-work-sheet" url="../work-order-form/work-order-form" open-type="switchTab"  >点击去开新单</navigator>
+			</view>
+			
+		</view>
+	</view>
+</view>

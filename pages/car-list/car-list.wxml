@@ -1,0 +1,138 @@
+<!--pages/car-list/car-list.wxml-->
+<view class="container">
+	<view class="m-list">
+		<view class="item"  wx:if="{{listCars && listCars.length > 0}}" 
+			wx:for="{{listCars}}" wx:key="deviceId">
+			<view class="line">
+				<view class="hd">{{item.deviceNo}}</view>
+				<view class="bd"></view>
+				<view class="ft"></view>
+			</view>
+			<view class="line">
+				<view class="hd">
+					
+				</view>
+				<view class="bd">{{item.deviceTypeName}}/{{item.deviceBrandName}}/{{item.deviceDesc}}(吨)</view>
+				<view class="ft"></view>
+			</view>
+			
+		</view>
+		<view class="empty" wx:if="{{!listCars|| listCars.length == 0}}">
+			<image style="width: 177px; height: 129px;" mode="scaleToFill"  src="../../image/list-empty.jpg"  />
+			<view></view>
+		</view>
+		<view class="btn-area">
+			 <button class="weui-btn u-btn1"  bindtap="showAddCar"  >新增设备</button>
+		</view>
+	</view>
+
+	<!--添加车辆 -->
+	<view class="m-car-pop m-car-add {{isShowAddCar?'show':''}}" >
+		  <view class="header">
+		  	<viev class="hd">
+		  		<button class="weui-btn mini-btn" bindtap="addCar" type="primary"  size="mini">完成</button>
+		  	</viev>
+		  	<viev class="bd">
+		  		选择设备车号
+		  	</viev>
+		  	<viev class="ft">
+		  		<i class="iconfont icon-del" bindtap="hideAddCar"></i>
+		  	</viev>
+		  </view>
+		  <view class="m-cells">
+		  	<view class="line">
+	 			<view class="hd">
+	 				<label class="label">设备型号</label>
+	 			</view>
+				<view class="bd">
+					
+				</view>
+				<view class="ft ft-in-access" bindtap="showCarTypeChoice">
+					{{carForm.carTypeCode?(carForm.carTypeName+'/'+carForm.carBrandName):'请选择设备'}}
+				</view>
+ 			</view>
+
+ 			<view class="line">
+ 				<view class="hd">
+	 				<label class="label">起重量</label>
+	 			</view>
+				<view class="bd">
+					<input class="input1" type="digit" bindinput="bindCarWeightInput" placeholder="请输入重量(吨)" />
+				</view>
+	 		</view>
+			<view class="line">
+	 			<view class="hd">
+	 				<label class="label">设备车号</label>
+	 			</view>
+				<view class="bd right">
+					<view class="license" >
+						<picker class="picker" bindchange="bindLicenseAreaChange"  range="{{listLicenses}}">
+							<view class="lic-p-a toggle">{{carForm.carLicenseArea}}</view>
+						</picker>
+						<input class="license-input" bindinput="bindCarLicenseInput" maxlength="6" placeholder="请输入车牌号" />
+					</view>
+				</view>
+				
+ 			</view>
+		  </view>
+		</view>
+		<!--选择车辆类型 -->
+		<view class="m-car-pop m-car-type-choice {{isShowCarTypeChoice?'show':''}}" >
+		  <view class="header">
+		  	<viev class="hd">
+		  		<i class="iconfont icon-back" bindtap="hideCarTypeChoice"></i>
+		  	</viev>
+		  	<viev class="bd">
+		  		选择设备类型
+		  	</viev>
+		  	<viev class="ft">
+
+		  	</viev>
+		  </view>
+		
+		 <scroll-view scroll-y="true" class="scroll-view"  >
+		    <view class="item" wx:for="{{listTypes}}" wx:key="id">
+		    	<view  class="label">{{item.type}}</view>
+			    <view  class="types-area">
+			    	 <button wx:for="{{item.listItem}}"  wx:for-item="t" bindtap="bindCarType" 
+			    	 	wx:key="code"
+			    	 	data-code="{{t.code}}"
+			    	 	data-name="{{t.name}}"
+			    	  class="weui-btn mini-btn" type="{{carForm.carTypeCode==t.code?'primary':'default'}}" size="mini">{{t.name}}</button>
+			    </view>
+		    </view>
+		 </scroll-view>
+
+		</view>
+
+		<!--选择车辆品牌 -->
+		<view class="m-car-pop m-car-type-choice {{isShowCarBrandChoice?'show':''}}" >
+		  <view class="header">
+		  	<viev class="hd">
+		  		<i class="iconfont icon-back" bindtap="hideCarBrandChoice"></i>
+		  	</viev>
+		  	<viev class="bd">
+		  		选择品牌
+		  	</viev>
+		  	<viev class="ft">
+
+		  	</viev>
+		  </view>
+		
+		 <scroll-view scroll-y="true" class="scroll-view"  >
+		    <view class="item" >
+		    	<view  class="label">热门品牌</view>
+			    <view  class="types-area">
+			    	 <button wx:for="{{listBrand}}"  wx:for-item="t" bindtap="bindCarBrand" 
+			    	 	wx:key="code"
+			    	 	data-code="{{t.code}}"
+			    	 	data-name="{{t.name}}"
+			    	  class="weui-btn mini-btn" type="{{carForm.carBrandCode==t.code?'primary':'default'}}" size="mini">{{t.name}}</button>
+			    </view>
+		    </view>
+		 </scroll-view>
+
+		</view>
+</view>
+
+<view class="mask" wx:if="{{isShowMask}}"></view>

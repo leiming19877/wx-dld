@@ -1,0 +1,63 @@
+<import src="../common/head.wxml" />
+<import src="../common/foot.wxml" />
+
+<view class="container">
+  <!-- <template is="head" data="{{title: '登录'}}"/> -->
+
+  <view class="page-body">
+    <view class="weui-cell">
+            <view class="weui-cell__hd input-icon">
+               <image style="width: 13px; height: 18px;" mode="scaleToFill" src="../../image/phone1.png"></image> 
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="number" maxlength="11"  focus 
+                 bindinput="bindPhoneInput"
+                 pattern="[0-9]*" placeholder="请输入手机号码" />
+            </view>
+     </view>
+    <view class="weui-cell">
+            <view class="weui-cell__hd input-icon">
+               <image style="width: 14px; height: 18px;" mode="scaleToFill" src="../../image/verification-code1.png"></image> 
+            </view>
+            <view class="weui-cell__bd b-b-1">
+                <input  class="verfication-input" 
+                 type="number" maxlength="4" 
+                 bindinput="bindVCodeInput" 
+                 pattern="[0-9]*" placeholder="请输入验证码" />
+                <button class="weui-btn mini-btn verfication-btn" bindtap="getVCode" disabled="{{!isEnableVCodeBtn}}" size="mini">{{vCodeText}}</button>
+            </view>
+           
+     </view>
+
+    <button class="weui-btn login-btn" disabled="{{!isAgreeTerms}}" bindtap="bindLogin"  >登录</button>
+    <view class="terms">
+         <checkbox-group bindchange="checkboxChange">
+              <view class="weui-cell">
+                <label class="weui-cell__hd weui-check__label" for="agreeTerms">
+                    <checkbox class="weui-check" id="agreeTerms" value="true" checked="{{isAgreeTerms}}"/>
+
+                    <view class="weui-check__hd_in-checkbox">
+                        <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!isAgreeTerms}}"></icon>
+                        <icon class="weui-icon-checkbox_success" type="success" size="23" color="#406ee9" wx:if="{{isAgreeTerms}}"></icon>
+                    </view>   
+                </label>
+                  <view class="weui-cell__bd">
+                      阅读并同意<navigator url="../agree-protocol/agree-protocol" class="weui-agree__link">《相关条款》</navigator>
+                    </view>
+                </view>
+            </checkbox-group>
+    </view>
+  <!--   <checkbox-group bindchange="bindAgreeChange">
+            <label class="weui-agree" for="weuiAgree">
+                <view class="weui-agree__text">
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                    <view class="weui-agree__checkbox-icon">
+                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                    </view>
+                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                </view>
+            </label>
+    </checkbox-group> -->
+  </view>
+
+</view>

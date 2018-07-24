@@ -1,0 +1,26 @@
+/* pages/work-order-list/work-order-list.wxss */
+.container{background-color: #f4f5f8;}
+.m-list{}
+.m-list .item{margin: 10px 10px 0 10px;padding: 15px 15px; border-radius:5px; background-color: #ffffff;}
+
+.m-list .line{display: flex;align-items: center; height: 25px;line-height:25px; }
+.m-list .hd{}
+.m-list .bd{flex:1 1 auto;}
+.m-list .bd.right{display: flex;justify-content:flex-end;}
+.m-list .ft{padding-right: 15px; text-align: right;color:#4773ea;}
+.m-list .ft-in-access{}
+.m-list .ft-in-access:after{content: " ";display: inline-block;
+height: 6px;width: 6px;border-width: 2px 2px 0 0;
+border-color:#4773ea;border-style: solid;
+transform: matrix(0.71,0.71,-0.71,0.71,0,0);}
+.m-list .time-icon{padding-right: 10px; width: 13px; height: 13px;}
+.m-list .address-icon{padding-right: 10px;width: 13px; height: 13px;}
+
+.m-list .singed{color:#999;}
+.m-list .singed:after{border-color: #999;}
+
+.m-list .total-info{padding: 5px 0; text-align: center;color:#b2b2b2;}
+
+.m-list  .empty{padding-top: 100px; text-align: center;}
+.m-list  .empty .info{color:#b2b2b2;text-align: center; }
+.m-list  .empty .create-work-sheet{display: inline-block; height: 38px;line-height: 38px; border-radius: 5px;color:#4773ea;}

@@ -1,0 +1,114 @@
+<!--pages/work-order-form/work-order-form.wxml-->
+<view class="container">
+ 	<view class="m-form m-cells">
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">内容</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1" bindinput="bindWorkContent" value="{{form.workContent}}" placeholder="请填写工作内容" />
+			</view>
+ 		</view>
+
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">电话</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1" bindinput="bindPhone" value="{{form.phone}}" placeholder="请填写联系客户电话" />
+			</view>
+ 		</view>
+
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">名称</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1" bindinput="bindCustName" value="{{form.custName}}"  placeholder="请填写客户名称" />
+			</view>
+ 		</view>
+
+	   <view class="line">
+ 			<view class="hd">
+ 				<label class="label">地点</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1"  bindinput="bindAddress" value="{{form.address}}" placeholder="请填写要去的工作地点" />
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">金额</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1" bindinput="bindMoney" value="{{form.money}}" type="digit" placeholder="0.00元" />
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">结算方式</label>
+ 			</view>
+			<view class="bd right">
+				
+				 <button wx:for="{{listSettlementMode}}" wx:for-item="t" wx:key="id"
+				  data-settlement-mode-id="{{t.id}}" bindtap="bindSettlementMode" class="weui-btn mini-btn"  
+				  type="{{form.settlementModeId==t.id?'primary':'default'}}" size="mini">{{t.name}}</button>
+			</view>
+ 		</view>
+ 	</view>
+
+ 	<form class="m-form m-cells" report-submit="true"  bindsubmit="formSubmit">
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">车号</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft ft-in-access" bindtap="showCarChoice">
+				{{form.deviceDesc}}
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">预约时间</label>
+ 			</view>
+			<picker class="bd right" mode="date" value="{{form.appointmentDate}}" start="{{form.appointmentMinDate}}" end="{{form.appointmentMaxDate}}" bindchange="bindAppointmentDate">
+				 <view class="date-input">{{form.appointmentDate}}</view>
+            </picker>
+			<picker class="ft" mode="time" value="{{form.appointmentTime}}"  start="00:01" end="23:59" bindchange="bindAppointmentTime">
+                <view class="time-input">{{form.appointmentTime}}</view>
+            </picker>
+ 		</view>
+ 		<view class="btn-area">
+ 			<button formType="submit" class="weui-btn u-btn1"  >保存</button>
+ 		</view>
+ 	</form>
+
+ 	<!--选择设备 -->
+	<view class="m-car-pop m-car-choice {{isShowCarChoice?'show':''}}" >
+		  <view class="header">
+		  	<viev class="hd">
+		  		<button class="weui-btn mini-btn finish-btn" bindtap="bindChoiceCar" type="primary" size="mini">确定</button>
+		  	</viev>
+		  	<viev class="bd">
+		  		选择设备车号
+		  	</viev>
+		  	<viev class="ft">
+		  		<i class="iconfont icon-del" bindtap="hideCarChoice"></i>
+		  	</viev>
+		  </view>
+		  <picker-view indicator-style="height: 50px;"   value="{{choiceCarIndex}}" bindchange="bindCarChange">
+		    <picker-view-column>
+		     	  <view wx:for="{{listCars}}" class="m-car-item" wx:key="id">
+		      		 <view class="license">{{item.deviceNo}}</view>
+		      		 <view class="desc">{{item.deviceTypeName}}/{{item.deviceBrandName}}/{{item.deviceDesc}}(吨)</view>
+		      	  </view>
+		    </picker-view-column>
+		  </picker-view>
+		</view>
+		
+
+</view>
+
+<view class="mask" wx:if="{{isShowMask}}"></view>

@@ -1,0 +1,76 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+
+	<view class="m-section m-cells">
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">头像</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				<image class="avatar-img" wx:if="{{user.avatarUrl}}"  src="{{user.avatarUrl}}" />
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">电话</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{user.mobile}}
+			</view>
+ 		</view>
+ 		<view class="line" bindtap="editUserName">
+ 			<view class="hd">
+ 				<label class="label">姓名</label>
+ 			</view>
+			<view class="bd" >
+				
+			</view>
+			<view class="ft {{user.userType === 1?'ft-in-access':''}}" >
+				{{user.name}}
+			</view>
+ 		</view>
+ 		<view class="line" bindtap="editCompany">
+ 			<view class="hd">
+ 				<label class="label">单位</label>
+ 			</view>
+			<view class="bd" >
+				
+			</view>
+			<view class="ft {{user.userType === 1?'ft-in-access':''}}"  >
+				{{user.company}}
+			</view>
+ 		</view>
+
+		<navigator class="line" wx:if="{{user.userType === 1}}" url="../car-list/car-list">
+ 			<view class="hd">
+ 				<label class="label">车号</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft ft-in-access"  >
+				{{user.devices.length}}台设备
+			</view>
+ 		</navigator>
+
+ 		<navigator class="line" wx:if="{{user.userType === 1}}"  url="../driver-list/driver-list">
+ 			<view class="hd">
+ 				<label class="label">机手</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft ft-in-access" >
+				{{user.drivers.length}}名机手
+			</view>
+ 		</navigator>
+ 		
+ 	</view>	
+
+</view>

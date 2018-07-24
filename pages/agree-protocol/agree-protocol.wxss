@@ -1,0 +1,9 @@
+/* pages/agree-protocol/agree-protocol.wxss */
+.container{background-color: #f4f5f8;}
+
+.section_01{text-align: center; font-weight: bold;line-height: 35px;}
+.section_02{padding: 5px 15px; line-height: 30px;}
+.section_03{padding: 5px 15px 15px 25px; line-height: 25px;}
+.section_04{padding: 5px 15px 15px 35px;  line-height: 25px;}
+.section_ct{text-indent: 4em;padding: 5px 15px;line-height: 25px;}
+

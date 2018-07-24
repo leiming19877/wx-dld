@@ -1,0 +1,21 @@
+/* pages/login/login.wxss */
+.page-body{padding-top:200rpx;padding-left:70rpx;padding-right:70rpx;width:auto;}
+
+
+.weui-cell{padding: 0 0;}
+.weui-cell:before{height:0;border:none;}
+.weui-cell+.weui-cell{margin-top:30px;}
+.input-icon{display:flex;flex:0 0 auto; width:30px;height:40px;text-align:center;}
+.input-icon image{margin:10px auto;}
+
+
+.weui-input{border-bottom: 1px solid #d6d6d6;}
+.weui-cell__bd.b-b-1{display:flex; border-bottom:1px solid #d6d6d6;}
+
+.verfication-input{display:inline-block;flex:1 1 auto;}
+
+.verfication-btn{flex:0 0 auto;margin:0 0 5px 5px; border:1px solid #416fe9;border-radius:5px;color:#416fe9;}
+
+.login-btn{margin-top:50px; background-color:#406ee9;color:#ffffff;box-shadow: 5px 5px rgba(236, 223, 189, .6);}
+
+.terms{display:flex;margin-top:20px;color:#c8c8c8;}

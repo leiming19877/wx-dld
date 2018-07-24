@@ -1,0 +1,19 @@
+<!--pages/edit-company/edit-company.wxml-->
+<view class="container">
+	<view class="m-form m-cells">
+		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">企业名称</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1" maxlength="30" bindinput="bindCompanyInput"
+					confirm-type="完成" bindconfirm="saveCompany"
+					value="{{form.company}}" placeholder="请填写企业名称" />
+			</view>
+ 		</view>
+ 		<!-- <view class="btn-area">
+ 			<button class="weui-btn u-btn1" bindtap="saveCompany" >保存</button>
+ 		</view> -->
+ 	</view>
+
+</view>

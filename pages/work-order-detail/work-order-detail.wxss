@@ -1,0 +1,29 @@
+/* pages/work-order-detail/work-order-detail.wxss */
+.container{padding-bottom: 140px; background-color: #f4f5f8;}
+.m-section{margin:15px 8px 0 8px; padding: 0 5px;border-radius: 5px;}
+.m-section:last-child{margin-bottom: 15px;}
+
+.m-cells .line{display: flex;align-items: center; height: 50px;border-bottom: 1px solid #e5e5e5; background-color: #ffffff;}
+.m-cells .line:last-child{border-bottom: none;}
+.m-cells .hd{}
+.m-cells .bd{flex:1 1 auto;}
+.m-cells .bd.right{display: flex;justify-content:flex-end;}
+.m-cells .ft{padding-right: 15px; text-align: right;color:#999;}
+
+.m-cells .input1{padding-right: 15px; height: 2.58823529em;min-height:2.58823529em;line-height:2.58823529em; text-align: right;}
+
+.m-cells .ft-in-access{}
+.m-cells .ft-in-access:after{content: " ";display: inline-block;height: 6px;width: 6px;border-width: 2px 2px 0 0;border-color:#c8c8cd;
+		border-style: solid;transform: matrix(.71,.71,-.71,.71,0,0);
+	 }
+
+.m-cells .label{display:inline-block; padding-left:10px;width: 100px;letter-spacing: 2px;}
+.m-cells .icon-phone{color:#406ee9;}
+
+.m-cells .btn-area{padding-bottom: 20px}
+
+
+.m-singed{position: fixed;left: 0;bottom: 0;width: 100%;}
+.m-singed .icon-edit{font-size: 30px;height: 50px;line-height: 50px;color:#406ee9; }
+.m-singed .signature-img{height: 150px;width: 100%;}
+.u-singed-img{position: absolute;top: 120px;left:150px;width: 103px;height: 84px;}

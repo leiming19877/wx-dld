@@ -1,0 +1,60 @@
+/* pages/edit-driver/edit-driver.wxss */
+.container{background-color: #f4f5f8;}
+button[size="mini"]{padding: 0 1em;}
+.weui-btn{margin-top: 0;}
+/*.weui-btn+.weui-btn{margin-right: 5px;}*/
+button[type="primary"]{background-color: #406ee9;}
+
+.m-form{margin:15px 8px; padding: 0 5px;border-radius:5px;}
+
+.m-form .btn-area{padding-bottom: 20px}
+
+.m-cells .line{display: flex;align-items: center; height: 50px;border-bottom: 1px solid #e5e5e5; background-color: #ffffff;}
+.m-cells .line:last-child{border-bottom: none;}
+.m-cells .hd{}
+.m-cells .bd{flex:1 1 auto;}
+.m-cells .bd.right{display: flex;justify-content:flex-end;}
+.m-cells .ft{padding-right: 15px; text-align: right;color:#999;}
+
+.m-cells .input1{padding-right: 15px; height: 2.58823529em;min-height:2.58823529em;line-height:2.58823529em; text-align: right;}
+
+.m-cells .ft-in-access{}
+.m-cells .ft-in-access:after{content: " ";display: inline-block;height: 6px;width: 6px;border-width: 2px 2px 0 0;border-color:#c8c8cd;
+		border-style: solid;transform: matrix(.71,.71,-.71,.71,0,0);
+	 }
+
+.m-cells .label{display:inline-block; padding-left:10px;width: 100px;letter-spacing: 2px;}
+
+
+.m-car-item{ padding-left: 15px; /*height: 50px;*/}
+.m-car-item .license{font-weight: bold;font-size: 16px;}
+.m-car-item .desc{line-height: 20px; font-size: 14px;}
+
+.m-car-pop{position: fixed;left: 0;bottom: 0;border-bottom:1px solid #e5e5e5; width: 100%;background-color: #f0f0f0;z-index: 10;
+	transform: translateY(100%);transition: transform 0.5s;
+}
+.m-car-pop.show{transform: translateY(0);}
+
+.m-car-pop .header{display: flex;align-items: center;height: 40px;}
+.m-car-pop .hd{display: flex;align-items: center;padding-left:15px;height: 40px;}
+.m-car-pop .bd{flex:1 1 auto;text-align: center;}
+.m-car-pop .ft{padding-right: 15px; text-align: right;color:#999;}
+.m-car-pop .icon-del{font-size: 30px;color: #406ee9;}
+
+.m-car-choice{z-index: 10;}
+.m-car-choice .finish-btn{margin-left: 10px;}
+.m-car-choice picker-view{height: 200px;width: 100%;}
+
+.m-car-add{height: 240px; z-index: 11;}
+.m-car-add .license-input{display: inline-block;  width: 120px;vertical-align: middle;}
+
+.m-car-type-choice{height: 240px; z-index: 12;}
+.m-car-type-choice .icon-back{margin-left: -5px; font-size: 25px;}
+.m-car-type-choice .scroll-view{height: 200px;background-color: #ffffff;}
+.m-car-type-choice .item{padding-left: 15px;}
+.m-car-type-choice .label{ height: 40px;line-height: 40px;font-weight: bold;}
+.m-car-type-choice .types-area{ /*display: flex;flex-wrap: wrap;-webkit-justify-content:flex-start; justify-content:flex-start;*/}
+.m-car-type-choice  .weui-btn{margin-top: 5px;margin-right: 5px;}
+
+
+.mask{position: fixed;top: 0;left: 0;bottom: 0;right: 0; background-color: rgba(0,0,0,0.3);z-index: 5;}

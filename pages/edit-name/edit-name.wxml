@@ -1,0 +1,21 @@
+<!--pages/edit-name/edit-name.wxml-->
+<view class="container">
+	<view class="m-form m-cells">
+		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">姓名</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1" maxlength="12" 
+					bindinput="bindUserNameInput" 
+					confirm-type="完成" bindconfirm="saveUser"
+					value="{{form.userName}}" placeholder="请填姓名" />
+			</view>
+ 		</view>
+ 	<!-- 	<view class="btn-area">
+ 			<button class="weui-btn u-btn1" bindtap="saveUser" >保存</button>
+ 		</view> -->
+ 	</view>
+
+</view>
+

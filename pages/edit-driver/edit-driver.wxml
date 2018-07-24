@@ -1,0 +1,60 @@
+<!--pages/edit-driver/edit-driver.wxml-->
+<view class="container">
+	<view class="m-form m-cells">
+		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">姓名</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1" maxlength="12" bindinput="bindDriverNameInput" value="{{driverForm.driverName}}" placeholder="请填写机手姓名" />
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">电话</label>
+ 			</view>
+			<view class="bd">
+				<input class="input1" maxlength="11" bindinput="bindDriverMobileInput" value="{{driverForm.driverMobile}}" placeholder="请填写机手手机号" />
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">车号</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft ft-in-access" bindtap="showCarChoice">
+				{{driverForm.deviceDesc}}
+			</view>
+ 		</view>
+ 		<view class="btn-area">
+ 			<button class="weui-btn u-btn1" bindtap="saveDriver" >保存</button>
+ 		</view>
+ 	</view>
+
+
+ 	<!--车子选择 -->
+ 	<view class="m-car-pop m-car-choice {{isShowCarChoice?'show':''}}" >
+		  <view class="header">
+		  	<viev class="hd">
+		  		<button class="weui-btn mini-btn finish-btn" bindtap="bindChoiceCar" type="primary" size="mini">确定</button>
+		  	</viev>
+		  	<viev class="bd">
+		  		选择设备车号
+		  	</viev>
+		  	<viev class="ft">
+		  		<i class="iconfont icon-del" bindtap="hideCarChoice"></i>
+		  	</viev>
+		  </view>
+		  <picker-view indicator-style="height: 50px;"   value="{{choiceCarIndex}}" bindchange="bindCarChange">
+		    <picker-view-column>
+		     	  <view wx:for="{{listCars}}" class="m-car-item" wx:key="id">
+		      		 <view class="license">{{item.deviceNo}}</view>
+		      		 <view class="desc">{{item.deviceTypeName}}*{{item.deviceBrandName}}*{{item.deviceDesc}}(吨)</view>
+		      	  </view>
+		    </picker-view-column>
+		  </picker-view>
+		</view>
+</view>
+<view class="mask" wx:if="{{isShowMask}}"></view>

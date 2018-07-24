@@ -1,0 +1,5 @@
+<!--pages/signpages/signpages.wxml-->
+<!-- 指向签名的web-view -->
+<!-- <web-view src="https://cloud.linksign.cn/v1/res/m/59afa5882e8d44b6aba1078/931073935401811968"></web-view> -->
+<web-view src="{{signerRedirectUri}}"></web-view>
+

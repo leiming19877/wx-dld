@@ -1,0 +1,53 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.6.4",
+	"appid": "wxe95fc8ac0fe8142b",
+	"projectname": "%E5%A5%BD%E6%A2%B0%E5%8F%8B",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "登录模式",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页模式",
+					"pathName": "pages/work-order-form/work-order-form",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "默认模式",
+					"pathName": "pages/default/detault",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "测试模式",
+					"pathName": "pages/test/test",
+					"query": ""
+				}
+			]
+		}
+	}
+}

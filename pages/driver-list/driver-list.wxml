@@ -1,0 +1,45 @@
+<!--pages/driver-list/driver-list.wxml-->
+<view class="container">
+	<view class="m-list">
+		<view class="item"  wx:if="{{listDrivers && listDrivers.length > 0}}" 
+			bindtouchstart="touchS"
+			bindtouchmove="touchM"
+			bindtouchend="touchE"
+			wx:for="{{listDrivers}}" wx:key="driverId" id="item-{{index}}"
+			data-index="{{index}}"
+			style="{{item.txtStyle}}" >
+			<view class="content">
+				<view class="line">
+					<view class="hd">姓名</view>
+					<view class="bd"></view>
+					<view class="ft">{{item.driverName}}</view>
+				</view>
+				<view class="line">
+					<view class="hd">电话</view>
+					<view class="bd"></view>
+					<view class="ft">{{item.driverMobile}}</view>
+				</view>
+				<view class="line">
+					<view class="hd">车号</view>
+					<view class="bd"></view>
+					<view class="ft">{{item.deviceInfo}}</view>
+				</view>
+			</view>
+			<view  class="operation">
+				<view class="del" 
+				 data-index="{{index}}"
+				 data-driver-id="{{item.driverId}}"
+				 bindtap="doRemoveDriver">
+					<view class="del-wrap">删除</view>
+				</view>
+			</view>
+		</view>
+		<view class="empty" wx:if="{{!listDrivers|| listDrivers.length == 0}}">
+			<image style="width: 177px; height: 129px;" mode="scaleToFill"  src="../../image/list-empty.jpg"  />
+			<view></view>
+		</view>
+		<view class="btn-area">
+			 <button class="weui-btn u-btn1"  bindtap="addDriver"  >新增机手</button>
+		</view>
+	</view>
+</view>

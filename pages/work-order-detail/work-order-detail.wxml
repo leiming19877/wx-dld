@@ -1,0 +1,190 @@
+<!--pages/work-order-detail/work-order-detail.wxml-->
+<view class="container">
+
+	<image wx:if="{{detail && detail.worksheetStatus >= 2}}" src="../../image/signed.png"  class="u-singed-img"  />
+	<view class="m-section m-cells">
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">工作内容</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.workContent}}
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">施工地址</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.workPlace}}
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">预约时间</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.appointmentTime}}
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">收费金额</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.money}}元
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">结算方式</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.balanceMethodStr}}
+			</view>
+ 		</view>
+
+		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">设备车号</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.deviceName}}
+			</view>
+ 		</view>
+
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">操作司机</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.driverName}}
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">工单编号</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.worksheetCode}}
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">开单时间</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.createTime}}
+			</view>
+ 		</view>
+ 		<view class="line" wx:if="{{detail && detail.worksheetStatus === 7}}">
+ 			<view class="hd">
+ 				<label class="label">完成时间</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.finishTime}}
+			</view>
+ 		</view>
+ 	</view>	
+
+ 	<view class="m-section m-cells">
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">服务电话</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.ownerMobile}}
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">服务单位</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.ownerName}}
+			</view>
+ 		</view>
+
+ 	</view>
+
+ 	<view class="m-section m-cells">
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">客户电话</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft" data-phone="{{detail.customerMobile}}" bindtap="callCustPhone">
+				<i class="iconfont icon-phone">	
+				</i>
+				{{detail.customerMobile}}
+			</view>
+ 		</view>
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">客户名称</label>
+ 			</view>
+			<view class="bd">
+				
+			</view>
+			<view class="ft">
+				{{detail.customerName}}
+			</view>
+ 		</view>
+ 		<view class="btn-area" wx:if="{{detail && detail.worksheetStatus == 2}}">
+ 			<button  class="weui-btn u-btn1" bindtap="doFinishWorksheet" >已完工</button>
+ 		</view>
+ 	</view>
+
+ 	<view class="m-singed m-cells">
+ 		<view class="line">
+ 			<view class="hd">
+ 				<label class="label">客户签名</label>
+ 			</view>
+			<view class="bd">
+				<view bindtap="getSignInfo" wx:if="{{detail && (detail.worksheetStatus === null ||detail.worksheetStatus === 1)}}">
+					<i class="iconfont icon-edit"></i>
+				</view>
+				<image wx:if="{{detail && detail.worksheetStatus >=2 }}" class="signature-img" src="{{detail.signature}}"   />
+			</view>
+ 		</view>
+
+ 	</view>
+</view>
